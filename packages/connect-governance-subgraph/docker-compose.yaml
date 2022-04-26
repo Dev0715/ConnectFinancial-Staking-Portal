@@ -1,0 +1,34 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=graph-node
+      - POSTGRES_USER=graph-node
+      - POSTGRES_PASSWORD=let-me-in
+  graph-node:
+    image: graphprotocol/graph-node
+    ports:
+      - 8000:8000
+      - 8001:8001
+      - 8020:8020
+    depends_on:
+      - ipfs
+      - postgres
+    environment:
+      - postgres_host=postgres
+      - postgres_port=5432
+      - postgres_pass=let-me-in
+      - postgres_user=graph-node
+      - postgres_db=graph-node
+      - ipfs=ipfs:5001
+      - ethereum=mainnet:http://ganache:8545
+  ipfs:
+    image: ipfs/go-ipfs
+    ports:
+      - 5001:5001
+  ganache:
+    image: trufflesuite/ganache-cli
+    command: ["-f", "https://eth-mainnet.alchemyapi.io/v2/opf1pfLThCfvgyUtE9Mj_NvZwY3yIVJx", "-u", "0xfe07d499e17482e5c4f40783ece3135dbdfe5d37"]
+    ports:
+      - 8545:8545

@@ -1,0 +1,3 @@
+usage: connect-cli [ command ] [ options ]
+
+connect-cli audit [ --accumulate/-a ] [ --from-block/-f ] [ --to-block/-t ]

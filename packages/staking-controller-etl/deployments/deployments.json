@@ -1,0 +1,3330 @@
+{
+  "31337": {
+    "localhost": {
+      "name": "localhost",
+      "chainId": "31337",
+      "contracts": {
+        "pCNFIFactoryLib": {
+          "address": "0xd2D80c8CA4160F14b38993C8640E1C754CBE0059",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "getBytecode",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "result",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getSalt",
+              "outputs": [
+                {
+                  "internalType": "bytes32",
+                  "name": "result",
+                  "type": "bytes32"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "UpdateToLastLib": {
+          "address": "0x5AF74bB5bd3ba7052d8CB17aDb05772f66C3647e",
+          "abi": []
+        },
+        "CalculateRewardsLib": {
+          "address": "0xde3AEF308CE68C1C3Bf989C9C2dfCC7Aa9e55475",
+          "abi": []
+        },
+        "UpdateRedeemableLib": {
+          "address": "0x45c2EB96893CBCd91B5E476eBC1fabB9660244Cd",
+          "abi": []
+        },
+        "StakingRedeployLib": {
+          "address": "0x8B3f12E6331f48d41CDAC6a6A2DDDD7853C6B26e",
+          "abi": []
+        },
+        "sCNFI": {
+          "address": "0x1DB2fBF8A71bC92AE0C42fE204787c848Ca14c96",
+          "abi": [
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "burn",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "initialize",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "mint",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ]
+        },
+        "StakingControllerArb": {
+          "address": "0xC88DC57429Af1355fE1F155A1c16dA3455056e89",
+          "abi": [
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "name": "RewardsClaimed",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "name": "_claim",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "delegateTo",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callData",
+                  "type": "bytes"
+                }
+              ],
+              "name": "_executeQuery",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "claimRewards",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "claimRewardsWithAmount",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "commitmentViolationPenalty",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "penalty",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "currentCycle",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "cycle",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "name": "dailyBonusesAccrued",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "fillFirstCycle",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_cycleInterval",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_rewardInterval",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_inflateBy",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_inflatepcnfiBy",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_baseUnstakePenalty",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_commitmentViolationPenalty",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_multipliers",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_cycles",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_minimums",
+                  "type": "uint256[]"
+                }
+              ],
+              "name": "govern",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_cnfi",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_sCnfi",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_cnfiTreasury",
+                  "type": "address"
+                }
+              ],
+              "name": "initialize",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "viewLogic",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "payload",
+                  "type": "bytes"
+                }
+              ],
+              "name": "query",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "a",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "b",
+                  "type": "address"
+                }
+              ],
+              "name": "receiveCallback",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "sender",
+                  "type": "address"
+                }
+              ],
+              "name": "receiveSingularCallback",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tier",
+                  "type": "uint256"
+                }
+              ],
+              "name": "restakeRewardsWithAmount",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "currentCycle",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "contract CNFITreasury",
+                      "name": "cnfiTreasury",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "contract ICNFI",
+                      "name": "cnfi",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "contract sCNFI",
+                      "name": "sCnfi",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "contract pCNFI",
+                      "name": "pCnfi",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "nextCycleTime",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycleInterval",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "nextTimestamp",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "inflateBy",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "inflatepcnfiBy",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "rewardInterval",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tiersLength",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "baseUnstakePenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "commitmentViolationPenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cumulativeTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "pCnfiImplementation",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentDay",
+                      "type": "uint256"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "totalWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "totalRawWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "address",
+                          "name": "pCnfiToken",
+                          "type": "address"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "reserved",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "day",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "inflateBy",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "bool",
+                          "name": "canUnstake",
+                          "type": "bool"
+                        }
+                      ],
+                      "internalType": "struct ETLLib.CycleView[]",
+                      "name": "cycles",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct ETLLib.IsolateView",
+                  "name": "isolateView",
+                  "type": "tuple"
+                }
+              ],
+              "name": "restoreBaseState",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "currentWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "minimumWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "dailyWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "multiplier",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "redeemable",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "daysClaimed",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "start",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "bool",
+                          "name": "seen",
+                          "type": "bool"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "currentTier",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cyclesHeld",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct StakingControllerLib.User[]",
+                      "name": "user",
+                      "type": "tuple[]"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "multiplier",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cycleEnd",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cyclesHeld",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "redeemable",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "start",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "weight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "claimed",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "commitment",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "lastDaySeen",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cumulativeTotalWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cumulativeRewardWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "lastTotalWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "currentTier",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct StakingControllerLib.DailyUser",
+                      "name": "dailyUser",
+                      "type": "tuple"
+                    },
+                    {
+                      "internalType": "uint256[]",
+                      "name": "weightChanges",
+                      "type": "uint256[]"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "dailyBonusesAccrued",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "bonusesAccrued",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lockCommitment",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "userAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "scnfiBalance",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct ETLLib.UserView[]",
+                  "name": "users",
+                  "type": "tuple[]"
+                }
+              ],
+              "name": "restoreState",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "commitmentTier",
+                  "type": "uint256"
+                }
+              ],
+              "name": "stake",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "unstake",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "withdrawable",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Redeemed",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "uint256",
+                  "name": "commitmentTier",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "minimum",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "bool",
+                  "name": "timeLocked",
+                  "type": "bool"
+                }
+              ],
+              "name": "Staked",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "slashed",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Unstaked",
+              "type": "event"
+            }
+          ]
+        },
+        "Query": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "sc",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
+            },
+            {
+              "inputs": [],
+              "name": "commitmentViolationPenalty",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "penalty",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "currentCycle",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "cycle",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "name": "dailyBonusesAccrued",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decodeResponse",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "caller",
+                  "type": "address"
+                }
+              ],
+              "name": "render",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "multiplier",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "minimum",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycles",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.Tier",
+                  "name": "tier",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "totalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalRawWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "pCnfiToken",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "reserved",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "day",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "canUnstake",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastCycleSeen",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentCycle",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.EncodeableCycle",
+                  "name": "retCycle",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "lockCommitment",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalStakedInProtocol",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cnfiReleasedPerDay",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "staked",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentCnfiBalance",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "unstakePenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "redeemable",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "bonuses",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "apy",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "commitmentViolationPenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "basePenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycleChange",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalCyclesSeen",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.ReturnStats",
+                  "name": "returnstats",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "multiplier",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycleEnd",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cyclesHeld",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "redeemable",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "start",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "weight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "claimed",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "commitment",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastDaySeen",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cumulativeTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cumulativeRewardWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentTier",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.DailyUser",
+                  "name": "dailyUser",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "multiplier",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "minimum",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycles",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.Tier[]",
+                  "name": "_tiers",
+                  "type": "tuple[]"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "currentTier",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "42161": {
+    "arbitrum": {
+      "name": "arbitrum",
+      "chainId": "42161",
+      "contracts": {
+        "CalculateRewardsLib": {
+          "address": "0xD883A5B95A4dBA18b22aD6cE9609a02274689CA3",
+          "abi": []
+        },
+        "Query": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "sc",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
+            },
+            {
+              "inputs": [],
+              "name": "commitmentViolationPenalty",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "penalty",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "currentCycle",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "cycle",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "name": "dailyBonusesAccrued",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decodeResponse",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "caller",
+                  "type": "address"
+                }
+              ],
+              "name": "render",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "multiplier",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "minimum",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycles",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.Tier",
+                  "name": "tier",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "totalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalRawWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "pCnfiToken",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "reserved",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "day",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "canUnstake",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastCycleSeen",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentCycle",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.EncodeableCycle",
+                  "name": "retCycle",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "lockCommitment",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalStakedInProtocol",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cnfiReleasedPerDay",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "staked",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentCnfiBalance",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "unstakePenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "redeemable",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "bonuses",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "apy",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "commitmentViolationPenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "basePenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycleChange",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalCyclesSeen",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.ReturnStats",
+                  "name": "returnstats",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "multiplier",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycleEnd",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cyclesHeld",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "redeemable",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "start",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "weight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "claimed",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "commitment",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastDaySeen",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cumulativeTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cumulativeRewardWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentTier",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.DailyUser",
+                  "name": "dailyUser",
+                  "type": "tuple"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "multiplier",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "minimum",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycles",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct StakingControllerLib.Tier[]",
+                  "name": "_tiers",
+                  "type": "tuple[]"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "currentTier",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ]
+        },
+        "StakingControllerArb": {
+          "address": "0x25F6847487DE7Ea72E53cF54ccc6549631a807aF",
+          "abi": [
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "name": "RewardsClaimed",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "name": "_claim",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "delegateTo",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callData",
+                  "type": "bytes"
+                }
+              ],
+              "name": "_executeQuery",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "claimRewards",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "claimRewardsWithAmount",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "commitmentViolationPenalty",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "penalty",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "currentCycle",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "cycle",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                }
+              ],
+              "name": "dailyBonusesAccrued",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "fillFirstCycle",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "_cycleInterval",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_rewardInterval",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_inflateBy",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_inflatepcnfiBy",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_baseUnstakePenalty",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_commitmentViolationPenalty",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_multipliers",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_cycles",
+                  "type": "uint256[]"
+                },
+                {
+                  "internalType": "uint256[]",
+                  "name": "_minimums",
+                  "type": "uint256[]"
+                }
+              ],
+              "name": "govern",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_cnfi",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_sCnfi",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_cnfiTreasury",
+                  "type": "address"
+                }
+              ],
+              "name": "initialize",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "viewLogic",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "payload",
+                  "type": "bytes"
+                }
+              ],
+              "name": "query",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "a",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "b",
+                  "type": "address"
+                }
+              ],
+              "name": "receiveCallback",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "sender",
+                  "type": "address"
+                }
+              ],
+              "name": "receiveSingularCallback",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tier",
+                  "type": "uint256"
+                }
+              ],
+              "name": "restakeRewardsWithAmount",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "uint256",
+                      "name": "currentCycle",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "contract CNFITreasury",
+                      "name": "cnfiTreasury",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "contract ICNFI",
+                      "name": "cnfi",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "contract sCNFI",
+                      "name": "sCnfi",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "contract pCNFI",
+                      "name": "pCnfi",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "nextCycleTime",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cycleInterval",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "nextTimestamp",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "inflateBy",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "inflatepcnfiBy",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "rewardInterval",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "tiersLength",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "baseUnstakePenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "commitmentViolationPenalty",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "totalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lastTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "cumulativeTotalWeight",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "pCnfiImplementation",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "currentDay",
+                      "type": "uint256"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "totalWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "totalRawWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "address",
+                          "name": "pCnfiToken",
+                          "type": "address"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "reserved",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "day",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "inflateBy",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "bool",
+                          "name": "canUnstake",
+                          "type": "bool"
+                        }
+                      ],
+                      "internalType": "struct ETLLib.CycleView[]",
+                      "name": "cycles",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct ETLLib.IsolateView",
+                  "name": "isolateView",
+                  "type": "tuple"
+                }
+              ],
+              "name": "restoreBaseState",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "currentWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "minimumWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "dailyWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "multiplier",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "redeemable",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "daysClaimed",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "start",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "bool",
+                          "name": "seen",
+                          "type": "bool"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "currentTier",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cyclesHeld",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct StakingControllerLib.User[]",
+                      "name": "user",
+                      "type": "tuple[]"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "multiplier",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cycleEnd",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cyclesHeld",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "redeemable",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "start",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "weight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "claimed",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "commitment",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "lastDaySeen",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cumulativeTotalWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "cumulativeRewardWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "lastTotalWeight",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "currentTier",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct StakingControllerLib.DailyUser",
+                      "name": "dailyUser",
+                      "type": "tuple"
+                    },
+                    {
+                      "internalType": "uint256[]",
+                      "name": "weightChanges",
+                      "type": "uint256[]"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "dailyBonusesAccrued",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "bonusesAccrued",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "lockCommitment",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "userAddress",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "scnfiBalance",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct ETLLib.UserView[]",
+                  "name": "users",
+                  "type": "tuple[]"
+                }
+              ],
+              "name": "restoreState",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "commitmentTier",
+                  "type": "uint256"
+                }
+              ],
+              "name": "stake",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "unstake",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "withdrawable",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amountToRedeem",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "bonuses",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Redeemed",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "uint256",
+                  "name": "commitmentTier",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "minimum",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "bool",
+                  "name": "timeLocked",
+                  "type": "bool"
+                }
+              ],
+              "name": "Staked",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "slashed",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Unstaked",
+              "type": "event"
+            }
+          ]
+        },
+        "StakingRedeployLib": {
+          "address": "0x76e090b1ce357f29a3D49Ac5B17215749Bb593E5",
+          "abi": []
+        },
+        "UpdateRedeemableLib": {
+          "address": "0xD92DFA87B2E41A37875Fc55D226514f8B6E91Ac4",
+          "abi": []
+        },
+        "UpdateToLastLib": {
+          "address": "0x2005396917186c69C7B5b6ACf10F18e2f8866fFF",
+          "abi": []
+        },
+        "pCNFIFactoryLib": {
+          "address": "0x84E6661347b4e2B88Cb8d300A6D92F96570B2a30",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "getBytecode",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "result",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "getSalt",
+              "outputs": [
+                {
+                  "internalType": "bytes32",
+                  "name": "result",
+                  "type": "bytes32"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "sCNFI": {
+          "address": "0x5B745373D04a7A61693626530C73D71eceFd0145",
+          "abi": [
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "burn",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "initialize",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "mint",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

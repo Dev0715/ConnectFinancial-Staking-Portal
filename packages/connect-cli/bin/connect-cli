@@ -1,0 +1,77 @@
+#!/usr/bin/env node
+'use strict';
+
+const { ConnectToken } = require('@connectfinancial/connect-token');
+const yargs = require('yargs');
+const audit = require('../lib/audit');
+const chalk = require('chalk');
+const emoji = require('node-emoji');
+const { getNetwork } = require('@ethersproject/networks');
+const ethers = require('ethers');
+const { BigNumber } = ethers;
+const { formatEther } = ethers.utils;
+const fs = require('fs');
+const path = require('path');
+const usage = fs.readFileSync(path.join(__dirname, 'usage.txt'), 'utf8');
+
+const formatArg = (v) => {
+  if (BigNumber.isBigNumber(v)) {
+    if (v.gt(Math.pow(10, 14)) || v.eq(0)) return formatEther(v);
+    else return ethers.utils.hexlify(v);
+  } else {
+    return ethers.utils.hexlify(v);
+  }
+};
+
+const outputRecord = (evt, accumulator) => {
+  if (accumulator.accumulate[0] && accumulator.accumulate[0] !== evt.event.name) return;
+  console.log(chalk.bold.yellow(evt.blockNumber) + ' ' + chalk.bold.red(evt.event.name));
+  let accumulated;
+  Object.keys(evt.event.args).forEach((key) => {
+    if (isNaN(Number(key))) {
+      console.log(emoji.get('zero') + ' {' + chalk.green.bold(key) + '} ' + chalk.cyan.bold(formatArg(evt.event.args[key])));
+      if (accumulator.accumulate[1] && accumulator.accumulate[1] === key) {
+        accumulator.sum = accumulator.sum.add(evt.event.args[key]);
+        accumulated = chalk.cyan.bold(key + '(sum)') + ': ' + chalk.magenta.bold(formatEther(accumulator.sum));
+      }
+    }
+  });
+  if (accumulated) console.log(accumulated);
+  console.log();
+};
+
+const auditFn = async (connectToken, args, options) => {
+  const blockNumber = Number(options.f || options['from-block'] || await connectToken.provider.getBlockNumber()) - 10000;
+  const generator = audit.retrieveEventsFromBlock(connectToken, blockNumber, 10, options['to-block'] && Number(options['to-block']));
+  let record;
+  let accumulator = {
+    accumulate: (options.a || options.accumulate || '').split(':'),
+    sum: BigNumber.from('0')
+  };
+  if (accumulator.accumulate.length === 2) {
+    console.log(chalk.yellow.bold('filtering for ') + chalk.magenta.bold(accumulator.accumulate[0]) + ' for event ' + chalk.cyan.bold(accumulator.accumulate[1]));
+  }
+  while ((record = await generator.next())) {
+    if (record.value) record.value.forEach((v) => outputRecord(v, accumulator));
+  }
+};
+
+const CHAINID = process.env.CHAIN_ID || '1';
+
+const usageThenExit = () => {
+  console.log(usage);
+  process.exit(0);
+};
+
+(async () => {
+  const cmd = yargs.argv._[0];
+  if (!cmd || yargs.argv.h || yargs.argv.help) return usageThenExit();
+  const connectToken = ConnectToken.get(process.env.CHAIN_ID || '1');
+  const network = getNetwork(Number(CHAINID)).name;
+  console.log(chalk.magenta.bold(network + '(' + CHAINID + ') ' + chalk.cyan.yellow('#{' + String(await connectToken.provider.getBlockNumber()) + '}')));
+  switch (cmd) {
+    case 'audit':
+      await auditFn(connectToken, yargs.argv._.slice(1), yargs.argv);
+      break;
+  }
+})().catch((err) => console.error(err));

@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "yarn workspace @connectfinancial/staking-portal build",
+    "start": "yarn workspace @connectfinancial/staking-portal start:test",
+    "start:node": "yarn workspace @connectfinancial/connect-token hardhat node --export-all deployments/deployments.json",
+    "test:node": "yarn workspace @connectfinancial/connect-token hardhat test",
+    "start:ropsten": "yarn workspace @connectfinancial/staking-portal start:ropsten"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.10.0",
+    "@graphprotocol/graph-ts": "0.10.0"
+  },
+  "resolutions": {
+    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
+    "**/@typescript-eslint/parser": "^4.1.1"
+  }
+}

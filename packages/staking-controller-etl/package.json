@@ -1,0 +1,45 @@
+{
+  "name": "@connectfinancial/staking-controller-etl",
+  "version": "0.1.0",
+  "description": "staking controller",
+  "repository": "https://github.com/Connect-Financial/staking-controller-etl",
+  "author": "Connect Systems S.A.",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "ethers": "^5.5.1",
+    "global": "^4.4.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.19"
+  },
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "start": "hardhat node --export-all deployments/deployments.json"
+  },
+  "devDependencies": {
+    "@bancor/contracts-solidity": "^0.6.33",
+    "@connectfinancial/connect-token": "^0.1.0",
+    "@indexed-finance/uniswap-v2-oracle": "^1.0.4",
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "@nomiclabs/hardhat-etherscan": "^2.1.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^3.3.0",
+    "@openzeppelin/hardhat-upgrades": "^1.12.0",
+    "@openzeppelin/upgrades-core": "^1.5.0",
+    "@uniswap/sdk": "^3.0.3",
+    "arb-bridge-peripherals": "^1.0.5",
+    "canonical-weth": "^1.4.0",
+    "chai": "^4.2.0",
+    "chalk": "^4.1.0",
+    "cross-env": "^7.0.3",
+    "ethers-gasnow": "^0.1.3",
+    "hardhat": "^2.6.1",
+    "hardhat-deploy": "^0.7.0-beta.50",
+    "hardhat-deploy-ethers": "^0.3.0-beta.7",
+    "hardhat-gas-reporter": "^1.0.4",
+    "local-repl": "^4.0.0",
+    "nice-repl": "^0.1.2",
+    "prettier": "^2.5.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.19"
+  }
+}

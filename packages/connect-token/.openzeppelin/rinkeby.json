@@ -1,0 +1,263 @@
+{
+  "manifestVersion": "3.1",
+  "impls": {
+    "d06f00c3f2d6fba358417200547236793813481c0896be46767cb8be6828ce42": {
+      "address": "0xeDFbFceE85847a7B7348b902ca4896789cCF4BEB",
+      "txHash": "0xde8ef0e78b1a6ad9616bb38c95cf0d18b75224b0e1b2a2ede213c1d5b18dcbfa",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_allowances",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:39"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_totalSupply",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:41"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:43"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:44"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_decimals",
+            "type": "t_uint8",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:45"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:312"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:20"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:74"
+          },
+          {
+            "contract": "ConnectToken",
+            "label": "unlockAt",
+            "type": "t_uint256",
+            "src": "contracts/token/CNFI.sol:10"
+          },
+          {
+            "contract": "ConnectToken",
+            "label": "authorizedBeforeUnlock",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "contracts/token/CNFI.sol:11"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "899d1742fae9fb598915419054200d6ef9e07cee9dae671c231fcadc3a1932de": {
+      "address": "0xfEb2E33CA6773D1202000ea45B2AcC6Ce1084ba5",
+      "txHash": "0x626b0660727c1319f779a2499202971a2bbe5a936d6f3e87b13da34ddb28b7b8",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_allowances",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:39"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_totalSupply",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:41"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:43"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:44"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_decimals",
+            "type": "t_uint8",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:45"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:312"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:20"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:74"
+          },
+          {
+            "contract": "ConnectToken",
+            "label": "unlockAt",
+            "type": "t_uint256",
+            "src": "contracts/token/CNFI.sol:10"
+          },
+          {
+            "contract": "ConnectToken",
+            "label": "authorizedBeforeUnlock",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "contracts/token/CNFI.sol:11"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    }
+  },
+  "admin": {
+    "address": "0xdDc55067Bff62398548Ed9aB113B3A9B4798942B",
+    "txHash": "0xc52670c2fdba504471e719b956b9100a7c68f99c986d14f5203d256db4d34096"
+  }
+}

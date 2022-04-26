@@ -1,0 +1,7 @@
+[build]
+  publish = "packages/frontend/build"
+  command = "yarn workspace @connectfinancial/staking-portal build"
+
+[context.ropsten]
+  public = "packages/frontend/build"
+  command = "yarn workspace @connectfinancial/staking-portal build:ropsten"
