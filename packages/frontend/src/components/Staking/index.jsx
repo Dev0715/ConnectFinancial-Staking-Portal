@@ -36,12 +36,14 @@ const Staking = () => {
     () => formatEtherBase(tempdata?.rewardsData?.amountToRedeem || "0"),
     [tempdata]
   );
-  const balRaw = useMemo(() => formatEtherBase(tempdata?.cnfiBalance || "0"), [
-    tempdata,
-  ]);
-  const staked = useMemo(() => formatEther(tempdata?.scnfiBalance || "0"), [
-    tempdata,
-  ]);
+  const balRaw = useMemo(
+    () => formatEtherBase(tempdata?.cnfiBalance || "0"),
+    [tempdata]
+  );
+  const staked = useMemo(
+    () => formatEther(tempdata?.scnfiBalance || "0"),
+    [tempdata]
+  );
   const stakedRaw = useMemo(
     () => formatEtherBase(tempdata?.scnfiBalance || "0"),
     [tempdata]
@@ -63,7 +65,7 @@ const Staking = () => {
       const _upgradeTiers = tiers.filter(
         (_tier) => _tier.minimum > tiers[upgradeable].minimum
       );
-      if (_upgradeTiers.length != upgradeTiers.length)
+      if (_upgradeTiers.length !== upgradeTiers.length)
         setUpgradeTiers(_upgradeTiers);
       /*if(data?.user?.commitment > 0) {
         console.log("here2:",upgradeTiers)
@@ -74,6 +76,7 @@ const Staking = () => {
         })
       } */
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data?.dailyUser, data?.currentTier, tiers]);
 
   const multiplier = useMemo(() => {
@@ -85,6 +88,7 @@ const Staking = () => {
       if (Number(mul) < 0) return "-";
       return mul + "%";
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data?.dailyUser.multiplier]);
 
   const amountIntermediate = React.useCallback(

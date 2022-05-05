@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 // "use strict";
 // import React from "react";
 import { ethers } from "ethers";
-// import { makeEthersBase } from "ethers-base";
-// import Query from "@connectfinancial/staking-controller-etl/artifacts/contracts/ArbQuery.sol/ArbQuery.json";
+import { makeEthersBase } from "ethers-base";
+import Query from "@connectfinancial/staking-controller-etl/artifacts/contracts/ArbQuery.sol/ArbQuery.json";
+// import Query from '@connectfinancial/connect-token/artifacts/contracts/view/Query.sol/Query.json';
 import { ProxyAdmin } from "@connectfinancial/connect-token/lib/proxy-admin.js";
 import { ConnectToken } from "@connectfinancial/connect-token/lib/main";
 //import MintCNFI from '@connectfinancial/connect-token/artifacts/contracts/token/MintCNFI.sol/MintCNFI';
@@ -104,7 +106,8 @@ const events = [
 // const INFURA_URL = `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`;
 
 export function getCNFI({ signer, chain }) {
-  /*  const makeStakingController = (deployment, query) => {
+  // eslint-disable-next-line no-unused-vars
+  const makeStakingController = (deployment, query) => {
     return class StakingController extends makeEthersBase(deployment) {
       dataView = async (account) => {
         const qFac = new ethers.ContractFactory(
@@ -115,6 +118,7 @@ export function getCNFI({ signer, chain }) {
         // await qFac.deploy(this.address, account)
         let data;
         console.log(this.signer);
+
         if (!this.signer) {
           data = await signer.call({
             data: qFac.getDeployTransaction(
@@ -127,7 +131,9 @@ export function getCNFI({ signer, chain }) {
             data: qFac.getDeployTransaction(this.address, account).data,
           });
         }
-        console.log(data);
+        // const unsignedTx = qFac.getDeployTransaction(this.address, account);
+        // data = await this.signer.call(unsignedTx);
+        // console.log(data);
         const decodedResult = qFac.interface.decodeFunctionResult(
           "decodeResponse",
           data
@@ -140,11 +146,12 @@ export function getCNFI({ signer, chain }) {
           bonuses,
         });
       };
+
       logsView = async (account) => {
         if (
           !account ||
-          account.length == 0 ||
-          account == ethers.constants.AddressZero
+          account.length === 0 ||
+          account === ethers.constants.AddressZero
         )
           return [];
         const data = await (this.signer
@@ -193,7 +200,6 @@ export function getCNFI({ signer, chain }) {
       };
     };
   };
-  */
 
   const getContracts = () => {
     const deploymentsForChain = Object.keys(deployments[chain]);
@@ -231,23 +237,32 @@ export function getCNFI({ signer, chain }) {
   const contracts = () => {
     const deployedContracts = getContracts(chain);
     const connectToken = getConnectToken(deployedContracts);
-    const cnfi = new ConnectToken(connectToken.address, signer);
+    // const cnfi = new ConnectToken(connectToken.address, signer);
+    const cnfi = new ethers.Contract(
+      connectToken.address,
+      [...connectToken.abi, ...events],
+      signer
+    );
     const StakingController = getStakingController(deployedContracts);
     const SCNFI = getsCNFI(deployedContracts);
-    const scnfi = new ConnectToken(SCNFI.address, signer);
-    /* const staking = new (makeStakingController(
+    // const scnfi = new ConnectToken(SCNFI.address, signer);
+    const scnfi = new ethers.Contract(
+      SCNFI.address,
+      [...SCNFI.abi, ...events],
+      signer
+    );
+    // const staking = new ethers.Contract(
+    //   StakingController.address,
+    //   [...StakingController.abi, ...events],
+    //   signer
+    // );
+    const staking = new (makeStakingController(
       {
         ...StakingController,
         abi: [...StakingController.abi, ...events],
       },
       Query
     ))(StakingController.address, signer);
-    */
-    const staking = new ethers.Contract(
-      StakingController.address,
-      [...StakingController.abi, ...events],
-      signer
-    );
     window.contracts = { cnfi, staking };
     return {
       cnfi,

@@ -12,26 +12,25 @@ const Mystatsearning = ({ getFormatted }) => {
       <Myearning
         label={"CNFI Earnings"}
         value={
-          //rounder('earned')
-          "N/A"
+          rounder("earned")
+          // "N/A"
         }
         size={"small"}
       />
       <Myearning
         label={"Total Earned"}
         value={
-          //rounder("totalEarned")
-          "N/A"
+          rounder("totalEarned")
+          // "N/A"
         }
       />
       <Myearning
         label={"Bonus CNFI Earned"}
         value={
-          "N/A"
-
-          /*comma(
-          Number(getFormatted((d) => d?.returnstats.bonuses || 0)).toFixed(2)
-        )*/
+          // "N/A"
+          comma(
+            Number(getFormatted((d) => d?.returnstats.bonuses || 0)).toFixed(2)
+          )
         }
         size={"small"}
       />

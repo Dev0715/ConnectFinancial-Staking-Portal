@@ -1,4 +1,4 @@
-import { useState, useReducer, useMemo, useEffect } from "react";
+import { useState, useReducer, useMemo } from "react";
 import { BigNumber } from "ethers";
 import { parseEther } from "@ethersproject/units";
 export const Modal = ({
@@ -41,7 +41,7 @@ export const Modal = ({
     handleClose();
   }
   const [error, setError] = useState(
-    submitName == "Unstake" ? !isPenaltyCalculated : false
+    submitName === "Unstake" ? !isPenaltyCalculated : false
   );
   const validateInput = (element, max, maxRaw) => {
     try {
@@ -198,9 +198,9 @@ export const Modal = ({
                   </>
                 )}
               </div>
-              {d.name == "amount" && error && (
+              {d.name === "amount" && error && (
                 <label className="modalerror">
-                  {customErrorMessage != ""
+                  {customErrorMessage !== ""
                     ? customErrorMessage
                     : typeof isPenaltyCalculated == "boolean" &&
                       !isPenaltyCalculated

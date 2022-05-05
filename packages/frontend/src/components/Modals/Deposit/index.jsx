@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useCallback, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useMemo, useCallback } from "react";
 import { useGlobalStateContext } from "../../../context/Context";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { Modal } from "../Modal";
@@ -21,7 +22,7 @@ const Deposit = ({
   const {
     getFormatted,
     userdata: data,
-    contracts: { staking, cnfi },
+    contracts: { staking },
     tempdata,
   } = useGlobalStateContext();
   const [depositStage, setDepositStage] = useState(0);
@@ -29,9 +30,10 @@ const Deposit = ({
   //   () => formatEther(data?.returnstats.currentCnfiBalance || '0'),
   //   [data?.returnstats.currentCnfiBalance]
   // );
-  const bal = useMemo(() => formatEther(tempdata?.cnfiBalance || "0"), [
-    tempdata,
-  ]);
+  const bal = useMemo(
+    () => formatEther(tempdata?.cnfiBalance || "0"),
+    [tempdata]
+  );
   // const redeemable = useMemo(() => formatEther(data?.redeemable || '0'), [
   //   data?.redeemable,
   // ]);
@@ -40,10 +42,10 @@ const Deposit = ({
     () => formatEther(tempdata?.rewardsData[0] || "0"),
     [tempdata]
   );
-  const availableTiers = useMemo(() => tiers.slice(currentTierIndex), [
-    tiers,
-    currentTierIndex,
-  ]);
+  const availableTiers = useMemo(
+    () => tiers.slice(currentTierIndex),
+    [tiers, currentTierIndex]
+  );
 
   const getTierName = useCallback((tier) => {
     if (!tier) return "";
@@ -61,6 +63,7 @@ const Deposit = ({
       if (!tiers || !tierId) return 0;
       return getTierDuration(tiers[tierId], true);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [tiers]
   );
   async function upgrade(values) {
@@ -193,7 +196,7 @@ const Deposit = ({
 
             intermediate: amountIntermediate,
           },
-          ...(Number(staked) == 0
+          ...(Number(staked) === 0
             ? [
                 {
                   name: "tier",

@@ -3,7 +3,6 @@ import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from "../../context/Context";
-// import store from "store";
 
 import { parseEther } from "@ethersproject/units";
 import { formatEther } from "../../util";
@@ -32,7 +31,7 @@ export const Balance = () => {
 export const Wallet = () => {
   const { contracts, account, active, chain } = useGlobalStateContext();
   const chainId = chain;
-  const { connect } = useGlobalDispatchContext();
+  const { connect, disconnect } = useGlobalDispatchContext();
   const [value, setValue] = useState("");
   const send = async (contract, method, ...params) => {
     return await contracts[contract][method](...params);
@@ -85,29 +84,26 @@ export const Wallet = () => {
         <div className="float-right buttongroup" style={{ display: "flex" }}>
           <div className="buttonbarbalance">
             {active ? <Balance /> : ""}
-            {!active ? (
-              <button
-                className={"buttonbarbutton"}
-                onClick={() => {
-                  if (!active) connect();
-                  // else {
-                  //
-                  // }
-                }}
-              >
-                {/* {active
+            {/* {!active ? ( */}
+            <button
+              className={"buttonbarbutton"}
+              onClick={() => {
+                if (!active) connect();
+              }}
+            >
+              {active
                 ? "" +
                   account.slice(0, 5) +
                   "..." +
                   account.slice(account.length - 3, account.length)
-                : "LINK WALLET"} */}
-                LINK WALLET
-              </button>
-            ) : (
+                : "LINK WALLET"}
+              {/* LINK WALLET */}
+            </button>
+            {/* ) : (
               <></>
-            )}
+            )} */}
           </div>
-          {/* {(active || store.get("wallet")) && (
+          {active && (
             <button
               className={"buttonbarbutton change"}
               onClick={() => {
@@ -116,7 +112,7 @@ export const Wallet = () => {
             >
               DISCONNECT
             </button>
-          )} */}
+          )}
         </div>
       </div>
 
