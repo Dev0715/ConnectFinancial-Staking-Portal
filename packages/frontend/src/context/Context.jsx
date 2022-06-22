@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, useMemo } from "react";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { getCNFI } from "../provider/cnfi";
 import store from "store";
@@ -78,18 +78,18 @@ export const Provider = ({ children }) => {
     if (contracts.staking) {
       handler();
     }
-    const provider = new ethers.providers.InfuraProvider(
-      chain,
-      INFURA_PROJECT_ID
-    );
-    provider.on("block", () => {
-      console.log("New Block", chain);
-      handler();
-    });
-    return () => {
-      console.log("Unsubscribe Block", chain);
-      provider.removeAllListeners("block");
-    };
+    // const provider = new ethers.providers.InfuraProvider(
+    //   chain,
+    //   INFURA_PROJECT_ID
+    // );
+    // provider.on("block", () => {
+    //   console.log("New Block", chain);
+    //   handler();
+    // });
+    // return () => {
+    //   console.log("Unsubscribe Block", chain);
+    //   provider.removeAllListeners("block");
+    // };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contracts]);
 
@@ -115,12 +115,12 @@ export const Provider = ({ children }) => {
 
   const handler = async () => {
     try {
-      // const rewardsData = {
-      //   amountToRedeem: BigNumber.from("0x0"),
-      //   bonuses: BigNumber.from("0x0"),
-      // };
-      const rewardsData = await contracts.staking.callStatic.claimRewards();
-      console.log("Rewards", rewardsData);
+      const rewardsData = {
+        amountToRedeem: BigNumber.from("0x0"),
+        bonuses: BigNumber.from("0x0"),
+      };
+      // const rewardsData = await contracts.staking.callStatic.claimRewards();
+      // console.log("Rewards", rewardsData);
       // const sCNFI = account ? await contracts.scnfi.balanceOf(account) : null;
       const totalsCNFI = await contracts.scnfi.totalSupply();
       console.log("TotalCNFI", totalsCNFI);
@@ -137,9 +137,26 @@ export const Provider = ({ children }) => {
           cnfiBalance,
         });
       }
-      const data = await contracts.staking.loadView(account);
-      console.log("LoadView", data);
-      setUserdata(data);
+      try {
+        const data = await contracts.staking.loadView(account);
+        console.log("LoadView", data);
+        setUserdata(data);
+      } catch (err) {
+        console.log("LoadView Issue", err);
+      }
+      // const dummyData = {
+      //   earned: BigNumber.from(0),
+      //   totalEarned: BigNumber.from(0),
+      //   returnstats: { 0: BigNumber.from(0), bonuses: BigNumber.from(0) },
+      //   user: { 0: BigNumber.from(0), start: BigNumber.from(0) },
+      //   dailyUser: {
+      //     commitment: BigNumber.from(0),
+      //     currentTier: BigNumber.from(0),
+      //     multiplier: BigNumber.from(0),
+      //   },
+      //   currentTier: BigNumber.from(0),
+      // };
+      // setUserdata(dummyData);
     } catch (e) {
       console.log("contract fetch handler error", chain);
     }
